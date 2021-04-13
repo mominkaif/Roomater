@@ -24,7 +24,7 @@
             var API_URL = 'https://kw1j1n35l4.execute-api.us-east-2.amazonaws.com/default/';
             $('#submitButton').on('click', function(){
                 $.ajax({
-                    type: 'POST',
+                    type: 'PUT',
                     url: API_URL,
 
                     data: JSON.stringify(
