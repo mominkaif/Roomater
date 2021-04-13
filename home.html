@@ -15,14 +15,14 @@
             <input type="text" id="uni" name="uni"><br>
             <label for="id">ID:</label><br>
             <input type="text" id="id" name="id"><br>
-            <button id='submitButton'>Submit</button>
+            <input type="submit" value="Submit">
         </form>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
 
             var API_URL = 'https://kw1j1n35l4.execute-api.us-east-2.amazonaws.com/default/';
-            $('#submitButton').on('click', function(){
+            $('#Submit').on('click', function(){
                 $.ajax({
                     type: 'POST',
                     url: API_URL,
