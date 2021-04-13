@@ -1,1 +1,1 @@
-<?php header('Location: /site.html');?>
+<?php include_once("site.html") ?>
