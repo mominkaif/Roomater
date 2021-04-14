@@ -9,29 +9,28 @@
     <body>
         <h1>Find you roomate today!</h1>
         <form>
-            <label for="name">First name:</label><br>
-            <input type="text" id="name" name="name"><br>
-            <label for="uni">University:</label><br>
-            <input type="text" id="uni" name="uni"><br>
-            <label for="id">ID:</label><br>
-            <input type="text" id="id" name="id"><br>
+            <label for="name">First name:</label>
+            <textarea id="name"></textarea><br>
+            <label for="uni">University:</label>
+            <textarea id="uni"></textarea><br>
+            <label for="num">ID:</label>
+            <textarea id="num"></textarea><br>
             <button id='submitButton'>Submit</button>
         </form>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
-
-            var API_URL = 'https://vnc8jo7xcg.execute-api.us-east-2.amazonaws.com/prod/inputWrite';
+            
             $('#submitButton').on('click', function(){
                 $.ajax({
                     type: 'POST',
-                    url: API_URL,
+                    url: 'https://vnc8jo7xcg.execute-api.us-east-2.amazonaws.com/prod/inputWrite',
 
                     data: JSON.stringify(
                         {
                         "name":$('#name').val(),
                         "uni":$('#uni').val(),
-                        "num":$('#id').val()
+                        "num":$('#num').val()
                         }
                     ),
                     contentType: "application/json",
