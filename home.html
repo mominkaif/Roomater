@@ -9,12 +9,12 @@
     <body>
         <h1>Find you roomate today!</h1>
         <form>
-            <label for="name">First name:</label>
-            <textarea id="name"></textarea><br>
-            <label for="uni">University:</label>
-            <textarea id="uni"></textarea><br>
-            <label for="num">ID:</label>
-            <textarea id="num"></textarea><br>
+            <label for="name">First name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="uni">University:</label><br>
+            <input type="text" id="uni" name="uni"><br>
+            <label for="id">ID:</label><br>
+            <input type="text" id="id" name="id"><br>
             <button id='submitButton'>Submit</button>
         </form>
 
@@ -30,7 +30,7 @@
                         {
                         "name":$('#name').val(),
                         "uni":$('#uni').val(),
-                        "num":$('#num').val()
+                        "num":$('#id').val()
                         }
                     ),
                     contentType: "application/json",
