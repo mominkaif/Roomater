@@ -8,6 +8,7 @@
 
     <body>
         <h1>Find you roomate today!!!</h1>
+
         <form>
             <label for="name">First name:</label><br>
             <input type="text" id="name" name="name"><br>
@@ -18,29 +19,33 @@
             <button id='submitButton'>Submit</button>
         </form>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script type="text/javascript">
-            var API_URL = 'https://zrmbra8be6.execute-api.us-east-2.amazonaws.com/default';
-            $('#submitButton').on('click', function(){
-                $.ajax({
-                    type: 'PUT',
-                    url: API_URL,
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script>
+            const submit = document.querySelector('#submit')
+            const name = document.querySelector('#name')
+            const uni = document.querySelector('#uni')
+            const num = document.querySelector('#num')
 
-                    data: JSON.stringify(
-                        {
-                        "name":$('#name').val(),
-                        "uni":$('#uni').val(),
-                        "num":$('#id').val()
-                        }
-                    ),
-                    contentType: "application/json",
-
-                    success: function(data){
-                        location.reload();
+    
+            submit.onclick = () => {
+                axios.post('https://elvqcjf3u5.execute-api.us-east-2.amazonaws.com', {
+                    name: name.value,
+                    uni: uni.value,
+                    num: num.value
+                },
+                {
+                    headers: {
+                        ContentType: 'application/json'
                     }
                 })
-                return false;
-            })
+                .then(res => {
+                    // Do something if call succeeds
+                })
+                .catch(err => {
+                    // Do something if call fails
+                })
+            }
+            
         </script>
 
           
