@@ -23,7 +23,7 @@
             var API_URL = 'https://zrmbra8be6.execute-api.us-east-2.amazonaws.com/default';
             $('#submitButton').on('click', function(){
                 $.ajax({
-                    type: 'POST',
+                    type: 'PUT',
                     url: API_URL,
 
                     data: JSON.stringify(
