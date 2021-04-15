@@ -8,7 +8,6 @@
 
     <body>
         <h1>Find you roomate today!!!</h1>
-
         <form>
             <label for="name">First name:</label><br>
             <input type="text" id="name" name="name"><br>
@@ -19,33 +18,29 @@
             <button id='submitButton'>Submit</button>
         </form>
 
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script>
-            const submit = document.querySelector('#submitButton')
-            const name = document.querySelector('#name')
-            const uni = document.querySelector('#uni')
-            const num = document.querySelector('#num')
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            var API_URL = 'https://k33zmtwlmc.execute-api.us-east-2.amazonaws.com/prod';
+            $('#submitButton').on('click', function(){
+                $.ajax({
+                    type: 'POST',
+                    url: API_URL,
 
-    
-            submit.onclick = () => {
-                axios.post('https://elvqcjf3u5.execute-api.us-east-2.amazonaws.com', {
-                    name: name.value,
-                    uni: uni.value,
-                    num: num.value
-                },
-                {
-                    headers: {
-                        ContentType: 'application/json'
+                    data: JSON.stringify(
+                        {
+                        "name":$('#name').val(),
+                        "uni":$('#uni').val(),
+                        "num":$('#id').val()
+                        }
+                    ),
+                    contentType: "application/json",
+
+                    success: function(data){
+                        location.reload();
                     }
                 })
-                .then(res => {
-                    // Do something if call succeeds
-                })
-                .catch(err => {
-                    // Do something if call fails
-                })
-            }
-            
+                return false;
+            })
         </script>
 
           
