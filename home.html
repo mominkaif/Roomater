@@ -14,26 +14,30 @@
             <label for="uni">University:</label><br>
             <input type="text" id="uni" name="uni"><br>
             <label for="id">ID:</label><br>
-            <input type="text" id="id" name="id"><br>
+            <input type="text" id="num" name="id"><br>
             <button id='submitButton'>Submit</button>
         </form>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
-            var API_URL = 'https://k33zmtwlmc.execute-api.us-east-2.amazonaws.com/prod';
+            var API_URL = 'https://gcqihfpsgi.execute-api.us-east-2.amazonaws.com/prod';
             $('#submitButton').on('click', function(){
                 $.ajax({
-                    type: 'POST',
                     url: API_URL,
+                    type: 'POST',
+
 
                     data: JSON.stringify(
                         {
                         "name":$('#name').val(),
                         "uni":$('#uni').val(),
-                        "num":$('#id').val()
+                        "num":$('#num').val()
                         }
                     ),
-                    contentType: "application/json",
+
+                    headers: { 
+                        ContentType: "application/json"
+                    },
 
                     success: function(data){
                         location.reload();
